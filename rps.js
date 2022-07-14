@@ -29,7 +29,30 @@ function playRound(computerSelection , playerSelection){
     }
 }
 
-let playerChoice = prompt("Rock, Paper, Scissors!:");
-let playerSelection = playerChoice.toLowerCase();
-const computerSelection = computerPlay();
-console.log(playRound(computerSelection, playerSelection));
+function game(){
+    for (let i = 0; i < 5; i++){
+        let playerChoice = prompt("Rock, Paper, Scissors!:");
+        let playerSelection = playerChoice.toLowerCase();
+        const computerSelection = computerPlay();
+        let result=playRound(computerSelection, playerSelection);
+        console.log(result);
+        let score=[0,0];
+        if (result.includes('won')){
+            score[0] += 1;
+            console.log('Round ' + i + 'score:' + score[0] + '-' + score[1]);
+        }
+        else if (result.includes('lost')){
+            score[1] += 1;
+            console.log('Round ' + i + 'score:' + score[0] + '-' + score[1]);
+        }
+        else {
+            console.log('Round ' + i + 'score:' + score[0] + '-' + score[1]);
+        }        
+    }
+    if (score[0]>score[1]){
+        console.log('You won!!');
+    }
+    else if (score[0]<score[1]){
+        console.log('the computer won');
+    }
+}

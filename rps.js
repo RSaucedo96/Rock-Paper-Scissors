@@ -30,29 +30,34 @@ function playRound(computerSelection , playerSelection){
 }
 
 function game(){
+    let score=[0,0];
     for (let i = 0; i < 5; i++){
         let playerChoice = prompt("Rock, Paper, Scissors!:");
         let playerSelection = playerChoice.toLowerCase();
         const computerSelection = computerPlay();
         let result=playRound(computerSelection, playerSelection);
         console.log(result);
-        let score=[0,0];
         if (result.includes('won')){
             score[0] += 1;
-            console.log('Round ' + i + 'score:' + score[0] + '-' + score[1]);
+            console.log('Round ' + (i+1) + ' score:' + score[0] + '-' + score[1]);
         }
         else if (result.includes('lost')){
             score[1] += 1;
-            console.log('Round ' + i + 'score:' + score[0] + '-' + score[1]);
+            console.log('Round ' + (i+1) + ' score:' + score[0] + '-' + score[1]);
         }
         else {
-            console.log('Round ' + i + 'score:' + score[0] + '-' + score[1]);
+            console.log('Round ' + (i+1) + ' score:' + score[0] + '-' + score[1]);
         }        
     }
     if (score[0]>score[1]){
-        console.log('You won!!');
+        console.log('Final Score: You won!!');
     }
     else if (score[0]<score[1]){
-        console.log('the computer won');
+        console.log('Final Score: the computer won.');
+    }
+    else {
+        console.log('Draw Game.');
     }
 }
+
+game();

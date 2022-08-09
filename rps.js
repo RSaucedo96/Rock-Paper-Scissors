@@ -55,7 +55,6 @@ function playRound(playerChoice){
             pcScore.innerHTML = `${parseInt(pcScore.textContent)+1}`;
         }
     }
-
 }
 
 playerSelection();
